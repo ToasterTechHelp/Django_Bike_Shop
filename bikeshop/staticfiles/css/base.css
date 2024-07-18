@@ -1,0 +1,187 @@
+{% load staticfiles %}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+}
+
+header{
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  padding: 1.75rem 14vh;
+  top: 0;
+  z-index: 100;
+    user-select: none;
+}
+
+.logo a {
+  font-size: 2.3125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+  color: #000000;
+}
+
+nav ul{
+  display: flex;
+}
+
+nav ul li{
+  list-style: none;
+  margin-left: 1.875rem;
+}
+
+nav ul li a {
+  font-size: 1.5625rem;
+  color: #000;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    position: relative;
+}
+
+.hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/static/images/bike-background.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    min-height: 600px;
+}
+
+.hero-content{
+    margin-bottom: auto;
+    margin-top: auto;
+    user-select: none;
+}
+
+.hero-content h1{
+    color: #FFF;
+    text-align: center;
+    font-family: "Comic Neue", serif;
+    font-size: 2.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: .5rem 0;
+}
+
+.hero-content p{
+    color: #FFF;
+    text-align: center;
+    font-family: "Comic Neue", serif;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.highlight{
+    color: #88FFC6;
+}
+
+.view-more {
+    position: absolute;
+    display: flex;
+    bottom: 14vh;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.view-more p{
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-family: "Comic Neue", serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16875rem;
+    gap: .5rem;
+    user-select: none;
+}
+
+#trails{
+    min-height: 800px;
+    background: url('/static/images/trails.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7.5rem;
+    padding: 7.5rem 0;
+}
+
+.features h2{
+    text-align: center;
+    margin: 7.5rem 0 3.5rem 0;
+    color: #000;
+    font-family: Inter, serif;
+    font-size: 2.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.features #trails div {
+    border-radius: 0.9375rem;
+    background: #FFF;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+    min-height: 200px;
+    width: 80%;
+    max-width: 80%;
+    text-align: center;
+}
+
+.features-image{
+    max-width: 88rem;
+    max-height: 32rem;
+    height: 100%;
+    width: auto;
+}
+
+#tires .features-image{
+    background: url('/static/images/tire.svg') no-repeat center center;
+    background-size: cover;
+}
+
+footer{
+  background-color: #262626;
+  position: relative;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+}

@@ -1,0 +1,31 @@
+<body>
+    <h2>{{ bike.name }}</h2>
+    <p>frame: {{ bike.frame.color }}</p>
+    <p>seat: {{ bike.seat.color }}</p>
+    <p>tires: {{ bike.tire.type }}</p>
+    <p>basket: {{ bike.has_basket|yesno:"yes,no" }}</p>
+
+    <p>description: {{ bike.description }}</p>
+
+    {% if bike.tire.quantity > 1 and bike.seat.quantity > 0 and bike.frame.quantity > 0 %}
+        {% if bike.has_basket %}
+            {% if basket.quantity > 0 %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Order</button>
+                </form>
+            {% else %}
+                <p><b>Unfortunately, this bike is currently not available</b></p>
+            {% endif %}
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Order</button>
+            </form>
+        {% endif %}
+    {% else %}
+        <p><b>Unfortunately, this bike is currently not available</b></p>
+    {% endif %}
+</body>

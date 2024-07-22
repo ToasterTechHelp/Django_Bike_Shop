@@ -32,7 +32,7 @@ class BasketAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('bike_name', 'name', 'surname', 'phone_number', 'id',)
+    list_display = ('id', 'bike_name', 'name', 'surname', 'phone_number',)
     search_fields = ['id', 'name', 'surname', 'bike__name', 'phone_number']
     ordering = ('id',)
     list_filter = ('status', 'bike__name',)

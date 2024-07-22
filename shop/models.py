@@ -41,6 +41,7 @@ class Bike(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     has_basket = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -52,6 +53,5 @@ class Order(models.Model):
     surname = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
     status = models.CharField(max_length=1, default="", choices=STATUS_CHOICES)
-
     def bike_name(self):
         return self.bike.name

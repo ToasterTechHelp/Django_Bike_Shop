@@ -1,4 +1,57 @@
-<body>
+{% extends 'shop/base.html' %}
+{% block title %}BikeDetails{% endblock %}
+
+{% block content %}
+{% load widget_tweaks %}
+
+<div class="bike-info">
+    <div class="bike-info-image">
+        <h5 class="link-tree"><a class="home-link" href="/bikes/">Home</a> > <a class="selection-link" href="/bikes/#bikes">Selection</a> > {{ bike.name }}</h5>
+        <img src="{{ bike.image.url }}" alt="{{ bike.name }}">
+        <div class="description">
+            <h5 class="description-heading">Description</h5>
+            <p>{{ bike.description }}</p>
+        </div>
+    </div>
+    <div class="bike-info-details">
+        <h4>{{ bike.name }}</h4>
+        <p class="bike-price">$2300.00</p>
+        <p class="availability"><span class="bolded">Availability:</span> {{ is_available|yesno:"In Stock!,Not Available" }}</p>
+        <p class="pick-up"><span class="bolded">Pick Up In-Store At:</span><br><br><a class="address" href="https://www.google.com/maps">1234 Beach Blvd<br>Jacksonville, Florida<br>32216</a></p>
+        <div class="purchase-form">
+            <p class="order-now">Order Now:</p>
+            <hr>
+            <form method="post" class="form">
+                {% csrf_token %}
+                {% render_field form.name placeholder='First Name' class+='form-control' %}
+                {% render_field form.surname placeholder='Last Name' class+='form-control' %}
+                {% render_field form.phone_number placeholder='Phone Number' class+='form-control' %}
+                <button class="submit-order" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="specs">
+    <h5 class="specs-heading">Specs:</h5>
+    <div class="specs-info">
+        <hr class="specs-hr">
+        <p><span class="bolded">Frame:</span> {{ bike.frame.color }}</p>
+        <hr class="specs-hr">
+        <p><span class="bolded">Seat:</span> {{ bike.seat.color }}</p>
+        <hr class="specs-hr">
+        <p><span class="bolded">Tires:</span> {{ bike.tire.type }}</p>
+        <hr class="specs-hr">
+        <p><span class="bolded">Basket:</span> {{ bike.has_basket|yesno:"Yes,No" }}</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--
     <h2>{{ bike.name }}</h2>
     <p>frame: {{ bike.frame.color }}</p>
     <p>seat: {{ bike.seat.color }}</p>
@@ -28,4 +81,5 @@
     {% else %}
         <p><b>Unfortunately, this bike is currently not available</b></p>
     {% endif %}
-</body>
+    -->
+{% endblock %}

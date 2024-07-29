@@ -15,10 +15,25 @@ def bikes(request):
 
 class BikeView(View):
     def get(self, request, pk, *args, **kwargs):
+        form = BikePurchaseForm()
         bike = Bike.objects.filter(id=pk).first()
         basket = Basket.objects.first()
-        form = BikePurchaseForm()
-        return render(request, 'shop/bikedetails.html', {'bike': bike, 'basket': basket, 'form': form})
+
+        is_available = False
+        if bike.frame.quantity > 1 and bike.seat.quantity > 1 and bike.tire.quantity > 2:
+            if bike.has_basket and basket.quantity > 1:
+                is_available = True
+            elif bike.has_basket and basket.quantity < 1:
+                is_available = False
+            else:
+                is_available = True
+
+        return render(request, 'shop/bikedetails.html', {
+            'bike': bike,
+            'basket': basket,
+            'form': form,
+            'is_available': is_available
+        })
 
     def post(self, request, pk, *args, **kwargs):
         form = BikePurchaseForm(request.POST)

@@ -1,0 +1,181 @@
+.bike-info{
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    margin-top: 6rem;
+}
+
+.link-tree{
+    color: #000;
+    font-family: Inter, serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+
+.link-tree a{
+    color: #0054F8;
+    text-decoration: none;
+}
+
+.bike-info-image{
+    max-width: 40rem;
+}
+
+.bike-info-image img{
+    width: 100%;
+    height: auto;
+}
+
+.description{
+    margin-top: 1.8rem;
+    color: #000;
+    font-size: 1.75rem;
+    font-style: normal;
+    line-height: normal;
+    width: 100%;
+}
+
+.description-heading{
+    font-family: Inter, serif;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.description p{
+    font-family: "Comic Neue", serif;
+    font-weight: 400;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.bike-info-details{
+    margin-top: 3rem;
+    max-width: 28rem;
+}
+
+.bike-info-details h4{
+    color: #000;
+    font-family: Inter, serif;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.bike-price{
+    margin-top: 1.5rem;
+    color: #000;
+    font-family: Inter, serif;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bike-info-details p{
+    color: #000;
+    font-family: "Comic Neue", serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bolded{
+    font-weight: 700;
+}
+
+.address{
+    text-decoration-line: underline;
+    font-weight: 300;
+    color: inherit;
+    font-family: Inter, serif;
+    font-size: 1.3rem;
+}
+
+.availability{
+    margin-top: 1.8rem;
+}
+
+.pick-up{
+    margin-top: 1rem;
+}
+
+.purchase-form{
+    margin-top: 1.8rem;
+}
+
+.order-now{
+    text-align: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.form-control, .submit-order{
+    min-width: 5rem;
+    width: 14rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: .3rem;
+}
+
+.form-control::placeholder{
+    font-family: Inter, serif;
+    font-size: 1rem;
+}
+
+.form-control{
+    padding-left: .5rem;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.submit-order{
+    background-color: #88FFC6;
+    font-weight: 700;
+}
+
+@media (max-width: 1400px){
+    .bike-info{
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+        padding: 0 1rem;
+    }
+}
+
+.specs{
+    margin: 8rem auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.specs-heading{
+    font-family: Inter, serif;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.specs-info p{
+    margin: 1rem 0;
+    color: #000;
+    font-family: "Comic Neue", serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: normal;
+}
+
+.specs-hr{
+}

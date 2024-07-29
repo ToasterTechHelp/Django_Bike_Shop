@@ -1,153 +1,98 @@
-{% load static %}
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike Shop</title>
-    <!-- Linking Stylesheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-</head>
-<body>
-<header>
-    <div class="logo">
-        <a href="">JAX CYCLES</a>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Bikes</a></li>
-            <li><a href="">About Us</a></li>
-        </ul>
-    </nav>
-</header>
-<div class="hero">
-    <div class="image">
-        <div class="hero-content">
-            <h1>Welcome to <span class="highlight">Jax Cycles</span></h1>
-            <p>High quality at affordable prices</p>
-        </div>
-        <div class="view-more">
-            <a onclick="smoothScroll(document.getElementById('bikes'))">
-                <p>View
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05887 27.9411 0 18 0C8.05887 0 0 8.05887 0 18C0 27.9411 8.05887 36 18 36ZM18.7071 26.8071L25.0711 20.4431C25.4616 20.0526 25.4616 19.4195 25.0711 19.0289C24.6805 18.6384 24.0474 18.6384 23.6569 19.0289L19 23.6858V9.9H17V23.6858L12.3431 19.0289C11.9526 18.6384 11.3195 18.6384 10.9289 19.0289C10.5384 19.4195 10.5384 20.0526 10.9289 20.4431L17.2929 26.8071C17.6834 27.1976 18.3166 27.1976 18.7071 26.8071Z"
-                              fill="#88FFC6"/>
-                    </svg>
-                    Bikes
-                </p>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="features">
-    <h2>What We Offer:</h2>
-    <div class="trails">
-        <div class="feature">
-            <div class="features-image">
-                <img src="/static/images/tire.svg">
+{% extends 'shop/base.html' %}
+{% block title %}Bikes{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <div class="image">
+            <div class="hero-content">
+                <h1>Welcome to <span class="highlight">Jax Cycles</span></h1>
+                <p>High quality at affordable prices</p>
             </div>
-            <div class="content">
-                <h3>Tires for Every Road</h3>
-                <p>We have a wide selection of high quality tires available for all your biking needs. From beaches to
-                    mountains, no terrain will limit you. </p>
-                <p><b>Types Available:</b></p>
-                <ul>
-                    {% for tire in all_tires %}
-                    <li>{{ tire.type }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="feature" id="seats">
-            <div class="content">
-                <h3>Seats in Classic Colors</h3>
-                <p>We offer many colors of seats to match your style. They are comfortable and ready for your
-                    bottom.</p>
-                <p><b>Colors Available:</b></p>
-                <ul>
-                    {% for seat in all_seats %}
-                    <li>{{ seat.color }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="features-image">
-                <img src="/static/images/seat.svg">
-            </div>
-        </div>
-        <div class="feature">
-            <div class="features-image">
-                <img src="/static/images/frame.svg">
-            </div>
-            <div class="content">
-                <h3>Frames Fit for You</h3>
-                <p>Our High quality frames come in many colors to fit your needs. From our highly customizable Industry
-                    Black to our spazzy Adventurer’s Red, we’ve got them all.</p>
-                <p><b>Colors Available:</b></p>
-                <ul>
-                    {% for frame in all_frames %}
-                    <li>{{ frame.color }}</li>
-                    {% endfor %}
-                </ul>
+            <div class="view-more">
+                <a onclick="smoothScroll(document.getElementById('bikes'))">
+                    <p>View
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05887 27.9411 0 18 0C8.05887 0 0 8.05887 0 18C0 27.9411 8.05887 36 18 36ZM18.7071 26.8071L25.0711 20.4431C25.4616 20.0526 25.4616 19.4195 25.0711 19.0289C24.6805 18.6384 24.0474 18.6384 23.6569 19.0289L19 23.6858V9.9H17V23.6858L12.3431 19.0289C11.9526 18.6384 11.3195 18.6384 10.9289 19.0289C10.5384 19.4195 10.5384 20.0526 10.9289 20.4431L17.2929 26.8071C17.6834 27.1976 18.3166 27.1976 18.7071 26.8071Z"
+                                  fill="#88FFC6"/>
+                        </svg>
+                        Bikes
+                    </p>
+                </a>
             </div>
         </div>
     </div>
-</div>
-<div class="view-selection" id="bikes">
-        <h2>View Our Selection...</h2>
-        <div class="container">
-            <div class="swiper mySwiper">
-                <div class="card-wrapper swiper-wrapper">
-                    {% for bike in all_bikes %}
-                    <div class="card swiper-slide">
-                        <img src="{{ bike.image.url }}" alt="{{ bike.name }}">
-                            <h4>{{ bike.name }}</h4>
-                            <p>{{ bike.description }}</p>
-                            <a class="bike-link" href="{% url 'bike_detail' bike.pk %}">Learn More</a>
-                    </div>
-                    {% endfor %}
+    <div class="features">
+        <h2>What We Offer:</h2>
+        <div class="trails">
+            <div class="feature">
+                <div class="features-image">
+                    <img src="/static/images/tire.svg">
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="content">
+                    <h3>Tires for Every Road</h3>
+                    <p>We have a wide selection of high quality tires available for all your biking needs. From beaches to
+                        mountains, no terrain will limit you. </p>
+                    <p><b>Types Available:</b></p>
+                    <ul>
+                        {% for tire in all_tires %}
+                        <li>{{ tire.type }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="feature" id="seats">
+                <div class="content">
+                    <h3>Seats in Classic Colors</h3>
+                    <p>We offer many colors of seats to match your style. They are comfortable and ready for your
+                        bottom.</p>
+                    <p><b>Colors Available:</b></p>
+                    <ul>
+                        {% for seat in all_seats %}
+                        <li>{{ seat.color }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="features-image">
+                    <img src="/static/images/seat.svg">
+                </div>
+            </div>
+            <div class="feature">
+                <div class="features-image">
+                    <img src="/static/images/frame.svg">
+                </div>
+                <div class="content">
+                    <h3>Frames Fit for You</h3>
+                    <p>Our High quality frames come in many colors to fit your needs. From our highly customizable Industry
+                        Black to our spazzy Adventurer’s Red, we’ve got them all.</p>
+                    <p><b>Colors Available:</b></p>
+                    <ul>
+                        {% for frame in all_frames %}
+                        <li>{{ frame.color }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-</div>
-<footer>
-    <div class="left-things">
-        <h4 class="footer-logo"><a href="/bikes">Jax Cycles</a></h4>
-        <p>This is a project site designed and<br>developed by Ehsan Ayoubi. Full<br>Portfolio can be found at<br>ehsanayoubi.com</p>
-        <p class="copyright">© 2024 Jax Cycles. All rights reserved.</p>
     </div>
-    <div class="right-things">
-        <div class="locations">
-            <h4>Locations</h4>
-            <div class="footer-content">
-                <p><a href="/bikes">1234 Beach Blvd<br>Jacksonville, Florida<br>32216</a></p>
+    <div class="view-selection" id="bikes">
+            <h2>View Our Selection...</h2>
+            <div class="container">
+                <div class="swiper mySwiper">
+                    <div class="card-wrapper swiper-wrapper">
+                        {% for bike in all_bikes %}
+                        <div class="card swiper-slide">
+                            <img src="{{ bike.image.url }}" alt="{{ bike.name }}">
+                                <h4>{{ bike.name }}</h4>
+                                <p>{{ bike.description }}</p>
+                                <a class="bike-link" href="{% url 'bike_detail' bike.pk %}">Learn More</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
-        </div>
-        <div class="social-media">
-            <h4>Social Media</h4>
-            <div class="footer-content">
-                <p><a href="https://x.com/jaxbicycle" target="_blank">X (Twitter)</a></p>
-                <p><a href="https://www.instagram.com/jaxbicyclecenter/?hl=en" target="_blank">Instagram</a></p>
-                <p><a href="https://www.facebook.com/jaxbicyclecenter/" target="_blank">Facebook</a></p>
-            </div>
-        </div>
-        <div class="Legal">
-            <h4>Legal</h4>
-            <div class="footer-content">
-                <p><a href="https://www.instagram.com/lawbymike/?hl=en" target="_blank">Terms and Conditions</a></p>
-                <p><a href="https://www.instagram.com/lawbymike/?hl=en" target="_blank">Privacy Policy</a></p>
-            </div>
-        </div>
     </div>
-</footer>
-
-<!-- Linking scripts -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="{% static 'js/script.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}

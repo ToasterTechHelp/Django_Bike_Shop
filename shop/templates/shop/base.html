@@ -1,0 +1,69 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Shop</title>
+
+    <!-- Linking Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="">JAX CYCLES</a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Bikes</a></li>
+            <li><a href="">About Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+<footer>
+    <div class="left-things">
+        <h4 class="footer-logo"><a href="/bikes">Jax Cycles</a></h4>
+        <p>This is a project site designed and<br>developed with Django by Ehsan<br>Ayoubi. Full Portfolio can be found<br>at ehsanayoubi.com</p>
+        <p class="copyright">© 2024 Jax Cycles. All rights reserved.</p>
+    </div>
+    <div class="right-things">
+        <div class="locations">
+            <h4>Locations</h4>
+            <div class="footer-content">
+                <p><a href="/bikes">1234 Beach Blvd<br>Jacksonville, Florida<br>32216</a></p>
+            </div>
+        </div>
+        <div class="social-media">
+            <h4>Social Media</h4>
+            <div class="footer-content">
+                <p><a href="https://x.com/jaxbicycle" target="_blank">X (Twitter)</a></p>
+                <p><a href="https://www.instagram.com/jaxbicyclecenter/?hl=en" target="_blank">Instagram</a></p>
+                <p><a href="https://www.facebook.com/jaxbicyclecenter/" target="_blank">Facebook</a></p>
+            </div>
+        </div>
+        <div class="Legal">
+            <h4>Legal</h4>
+            <div class="footer-content">
+                <p><a href="https://www.instagram.com/lawbymike/?hl=en" target="_blank">Terms and Conditions</a></p>
+                <p><a href="https://www.instagram.com/lawbymike/?hl=en" target="_blank">Privacy Policy</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Linking scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

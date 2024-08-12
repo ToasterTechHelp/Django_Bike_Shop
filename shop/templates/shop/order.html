@@ -1,2 +1,15 @@
-<h2>Thanks for your order!</h2>
-<p>Your order number is {{ order.id }}. We will call you once your bike is ready!</p>
+{% extends 'shop/base.html' %}
+{% block title %}Bikes{% endblock %}
+
+{% block content %}
+
+<div class="information">
+    <h2 class="thanks">Thank You For Your Order!</h2>
+    <hr>
+    <p class="order-num">Your order number is <b>{{ order.id }}</b>. We will call you once your bike is ready!</p>
+</div>
+<div class="order-links">
+    <p><a class="home">Home</a><a class="bikes">Bikes</a><a class="view-bike">View Bike</a></p>
+</div>
+
+{% endblock %}

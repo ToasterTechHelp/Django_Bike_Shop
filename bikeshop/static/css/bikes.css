@@ -42,8 +42,8 @@ header{
   align-items: center;
   position: sticky;
   padding: 1.75rem 14vh;
-  top: 0;
-  z-index: 100;
+    top: 0;
+    z-index: 100;
     user-select: none;
 }
 
